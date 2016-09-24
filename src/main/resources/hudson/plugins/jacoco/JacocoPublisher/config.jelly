@@ -1,0 +1,79 @@
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
+  <f:entry title="${%entry.title}"
+           description="${%includes.description}">
+    <f:textbox name="jacoco.includes" value="${instance.includes}"/>
+  </f:entry>
+  <!--
+  <f:entry title="${%MinLine Coverage}"
+           description="${%minLineCoveragePerSource.description}">
+    <f:textbox name="jacoco.minLineCoveragePerSource" value="${instance.minLineCoveragePerSource}"/>
+  </f:entry>
+  -->
+    <f:entry title="${%Health reporting}"
+             description="${%thresholds.description(rootURL)}">
+        <table>
+            <thead>
+                <tr>
+                    <td width="10%"></td>
+                    <td width="10%">${%Class}</td>
+                    <td width="10%">${%Method}</td>
+                    <td width="10%">${%Line}</td>
+                    <td width="10%">${%Instruction}</td>
+                    <td width="10%">${%Complexity}</td>
+                    <td width="10%">${%Branch}</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>
+                        <img src="${rootURL}/images/16x16/health-80plus.gif" alt="100%"
+                             title="${%health.100.title}"/>
+                    </th>
+                    <td>
+                        <f:textbox name="jacocoHealthReports.maxClass" value="${instance.healthReports.maxClass}" />
+                    </td>
+                    <td>
+                        <f:textbox name="jacocoHealthReports.maxMethod" value="${instance.healthReports.maxMethod}" />
+                    </td>
+                    <td>
+                        <f:textbox name="jacocoHealthReports.maxLine" value="${instance.healthReports.maxLine}" />
+                    </td>
+                    <td>
+                        <f:textbox name="jacocoHealthReports.maxInstruction" value="${instance.healthReports.maxInstruction}" />
+                    </td>
+                    <td>
+                        <f:textbox name="jacocoHealthReports.maxComplexity" value="${instance.healthReports.maxComplexity}" />
+                    </td>
+                    <td>
+                        <f:textbox name="jacocoHealthReports.maxBranch" value="${instance.healthReports.maxBranch}" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <img src="${rootURL}/images/16x16/health-00to19.gif" alt="0%"
+                             title="${%health.0.title}"/>
+                    </th>
+                    <td>
+                        <f:textbox name="jacocoHealthReports.minClass" value="${instance.healthReports.minClass}" />
+                    </td>
+                    <td>
+                        <f:textbox name="jacocoHealthReports.minMethod" value="${instance.healthReports.minMethod}" />
+                    </td>
+                    <td>
+                        <f:textbox name="jacocoHealthReports.minLine" value="${instance.healthReports.minLine}" />
+                    </td>
+                    <td>
+                        <f:textbox name="jacocoHealthReports.minInstruction" value="${instance.healthReports.minInstruction}" />
+                    </td>
+                    <td>
+                        <f:textbox name="jacocoHealthReports.minComplexity" value="${instance.healthReports.minComplexity}" />
+                    </td>
+                    <td>
+                        <f:textbox name="jacocoHealthReports.minBranch" value="${instance.healthReports.minBranch}" />
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+    </f:entry>
+</j:jelly>
